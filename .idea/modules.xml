@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jike-admin-generator/jike-admin-generator.iml" filepath="$PROJECT_DIR$/jike-admin-generator/jike-admin-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jike-admin-system/jike-admin-system.iml" filepath="$PROJECT_DIR$/jike-admin-system/jike-admin-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-boot-jike-admin.iml" filepath="$PROJECT_DIR$/spring-boot-jike-admin.iml" />
+    </modules>
+  </component>
+</project>

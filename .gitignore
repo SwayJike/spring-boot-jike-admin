@@ -1,0 +1,3 @@
+# Project exclude paths
+/jike-admin-generator/target/
+/jike-admin-system/target/

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!-- 日志输出级别 -->
+    <property name="LOG_ROOT_LEVEL" value="INFO"/>
+    <!-- 在当前目录下创建名为logs目录做日志存放的目录 -->
+    <property name="LOG_HOME" value="./logs"/>
+    <!-- 档案日志存放目录 -->
+    <property name="LOG_ARCHIVE" value="./logs/archive"/>
+    <!-- 模块名称，影响日志配置名，日志文件名 -->
+    <property name="LOG_MODULE_NAME" value="logback"/>
+    <!-- 日志输出格式：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度， %msg：日志消息，%n是换行符 -->
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{0} - %msg%n"/>
+    <!-- 日志文件大小,超过这个大小将被压缩 -->
+    <property name="LOG_MAX_SIZE" value="100MB"/>
+    <!-- 保留多少天以内的日志 -->
+    <property name="LOG_DAYS" value="15"/>
+    <!-- 缓冲队列大小 -->
+    <property name="INFO_BUFFER_SIZE" value="2048"/>
+    <property name="WARN_BUFFER_SIZE" value="256"/>
+    <property name="ERROR_BUFFER_SIZE" value="256"/>
+
+    <!-- 控制台输出 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 只记录info级别的日志 -->
+    <appender name="infoLog"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/${LOG_MODULE_NAME}-infoLog.log</file>
+        <!-- 只打印info日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <!-- 设置过滤级别 -->
+            <level>INFO</level>
+            <!-- 用于配置符合过滤条件的操作 -->
+            <onMatch>ACCEPT</onMatch>
+            <!-- 用于配置不符合过滤条件的操作 -->
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <!-- 日志归档并压缩,每天生成一个日志文件,最多保留15天的日志文件 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/${LOG_MODULE_NAME}-infoLog-%d{yyyy-MM-dd}-%i.log.zip</fileNamePattern>
+            <maxHistory>${LOG_DAYS}</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${LOG_MAX_SIZE}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>
+                ${LOG_PATTERN}
+            </pattern>
+            <!-- 此处设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 只记录warn级别的日志 -->
+    <appender name="warnLog"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/${LOG_MODULE_NAME}-warnLog.log</file>
+        <!-- 只打印warn日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <!-- 日志归档并压缩,每天生成一个日志文件,最多保留15天的日志文件 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/${LOG_MODULE_NAME}-warnLog-%d{yyyy-MM-dd}-%i.log.zip</fileNamePattern>
+            <maxHistory>${LOG_DAYS}</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${LOG_MAX_SIZE}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>
+                ${LOG_PATTERN}
+            </pattern>
+            <!-- 此处设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 只记录error级别的日志 -->
+    <appender name="errorLog"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/${LOG_MODULE_NAME}-errorLog.log</file>
+
+        <!-- 只打印错误日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <!-- 日志归档并压缩,每天生成一个日志文件,最多保留15天的日志文件 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/${LOG_MODULE_NAME}-errorLog-%d{yyyy-MM-dd}-%i.log.zip</fileNamePattern>
+            <maxHistory>${LOG_DAYS}</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${LOG_MAX_SIZE}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                ${LOG_PATTERN}
+            </Pattern>
+            <!-- 此处设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 异步记录日志 -->
+    <appender name="async-infoLog" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>${INFO_BUFFER_SIZE}</queueSize>
+        <!-- 如果是true，调用者的数据将提供给远程主机，默认是false -->
+        <!-- <includeCallerData>true</includeCallerData> -->
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="infoLog"/>
+    </appender>
+
+    <appender name="async-warnLog" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>${WARN_BUFFER_SIZE}</queueSize>
+        <appender-ref ref="warnLog"/>
+    </appender>
+
+    <appender name="async-errorLog" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>${ERROR_BUFFER_SIZE}</queueSize>
+        <appender-ref ref="errorLog"/>
+    </appender>
+
+    <!-- 测试环境使用 -->
+    <root level="${LOG_ROOT_LEVEL}">
+        <appender-ref ref="async-infoLog"/>
+        <appender-ref ref="async-warnLog"/>
+        <appender-ref ref="async-errorLog"/>
+    </root>
+
+</configuration> 

@@ -1,0 +1,13 @@
+
+t
+java:S4144U"WUpdate this method so that its implementation is not identical to "success" on line 71.(ïüì8°á”ñÛ/
+C
+java:S19481"&Make "data" transient or serializable.(¼éñ8±á”ñÛ/
+€
+java:S1488?"^Immediately return this expression instead of assigning it to the temporary variable "result".(àÎ­Øúÿÿÿÿ8¹á”ñÛ/
+{
+java:S1488H"^Immediately return this expression instead of assigning it to the temporary variable "result".(ê°ïı8ºá”ñÛ/
+{
+java:S1488Q"^Immediately return this expression instead of assigning it to the temporary variable "result".(¸Í‡ì8ºá”ñÛ/
+{
+java:S1488V"^Immediately return this expression instead of assigning it to the temporary variable "result".(ê°ïı8ºá”ñÛ/
