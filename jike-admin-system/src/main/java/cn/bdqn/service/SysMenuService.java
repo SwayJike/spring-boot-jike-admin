@@ -3,6 +3,8 @@ package cn.bdqn.service;
 import cn.bdqn.model.entity.SysMenu;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  * 系统菜单 服务类
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface SysMenuService extends IService<SysMenu> {
 
+    List<SysMenu> menuList();
 }

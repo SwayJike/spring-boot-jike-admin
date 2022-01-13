@@ -1,5 +1,6 @@
 package cn.bdqn.handler;
 
+import cn.bdqn.common.constant.HttpMessageConst;
 import cn.bdqn.common.lang.CommonResult;
 import cn.bdqn.util.JwtUtils;
 import cn.hutool.json.JSONUtil;
@@ -32,7 +33,7 @@ public class JwtLogoutSuccessHandler implements LogoutSuccessHandler {
         response.setContentType("application/json; charset=UTF-8");
         PrintWriter out = response.getWriter();
         response.setHeader(jwtUtils.getHeader(), "");
-        CommonResult success = CommonResult.success();
+        CommonResult success = CommonResult.success().setMessage(HttpMessageConst.LOGOUT_SUCCESS_MESSAGE);
         out.write(JSONUtil.toJsonStr(success));
         out.flush();
         out.close();

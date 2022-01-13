@@ -1,5 +1,6 @@
 package cn.bdqn.handler;
 
+import cn.bdqn.common.constant.HttpMessageConst;
 import cn.bdqn.common.lang.CommonResult;
 import cn.bdqn.util.JwtUtils;
 import cn.hutool.json.JSONUtil;
@@ -33,7 +34,7 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         /*生成jwt 并放到请求头中*/
         String jwt = jwtUtils.generateJwt(auth.getName());
         response.setHeader(jwtUtils.getHeader(), jwt);
-        CommonResult success = CommonResult.success().setMessage("登录成功");
+        CommonResult success = CommonResult.success().setMessage(HttpMessageConst.LOGIN_SUCCESS_MESSAGE);
         out.write(JSONUtil.toJsonStr(success));
         out.flush();
         out.close();

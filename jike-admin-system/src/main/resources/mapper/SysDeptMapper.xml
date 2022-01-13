@@ -20,5 +20,25 @@
     <sql id="Base_Column_List">
         dept_id, pid, sub_count, name, dept_sort, enabled, create_by, update_by, create_time, update_time
     </sql>
+    
+    <resultMap id="deptMap" type="sysDept">
+        <id column="dept_id" jdbcType="BIGINT" property="deptId"></id>
+        <collection column="dept_id" jdbcType="BIGINT" property="children" select="deptList"></collection>
+    </resultMap>
+
+    <select id="deptList" resultMap="deptMap">
+        select <include refid="Base_Column_List"></include>
+            from sys_dept
+        <where>
+            <choose>
+                <when test="pid == null">
+                    pid is null
+                </when>
+                <otherwise>
+                    pid = #{dept_id}
+                </otherwise>
+            </choose>
+        </where>
+    </select>
 
 </mapper>

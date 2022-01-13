@@ -3,6 +3,8 @@ package cn.bdqn.service;
 import cn.bdqn.model.entity.SysDept;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  * 部门 服务类
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface SysDeptService extends IService<SysDept> {
 
+    List<SysDept> deptList();
 }

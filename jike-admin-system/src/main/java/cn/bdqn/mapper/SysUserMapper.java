@@ -4,6 +4,7 @@ import cn.bdqn.model.entity.SysUser;
 import cn.bdqn.cache.MybatisRedisCache;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.CacheNamespace;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -13,6 +14,7 @@ import org.apache.ibatis.annotations.CacheNamespace;
  * @author SwayJike
  * @since 2021-12-14
  */
+@Mapper
 @CacheNamespace(implementation= MybatisRedisCache.class)
 public interface SysUserMapper extends BaseMapper<SysUser> {
 

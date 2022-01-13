@@ -117,7 +117,7 @@ mybatis-plus:
 # pagehelper配置
 pagehelper:
   # 分页合理化参数,默认值为false
-  reasonable: false
+  reasonable: true
   # 配置方言
   helper-dialect: mysql
   params: count=countSql

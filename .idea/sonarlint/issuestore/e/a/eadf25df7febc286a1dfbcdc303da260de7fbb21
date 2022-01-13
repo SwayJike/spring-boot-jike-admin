@@ -1,0 +1,11 @@
+
+E
+java:S3740e"/Provide the parametrized type for this generic.(½Ğ ±
+>	java:S108I")Either remove or fill this block of code.(”ı¾
+>	java:S108V")Either remove or fill this block of code.(”ı¾
+]
+java:S1612\"HReplace this lambda with method reference 'RedisServerCommands::dbSize'.(—ÅÒ
+v
+java:S14889"[Immediately return this expression instead of assigning it to the temporary variable "obj".(İÏŠåøÿÿÿÿ
+X
+java:S2259]"BA "NullPointerException" could be thrown; "size" is nullable here.(î¤½ç

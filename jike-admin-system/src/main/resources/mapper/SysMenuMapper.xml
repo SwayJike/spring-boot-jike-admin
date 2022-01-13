@@ -26,7 +26,27 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        menu_id, pid, sub_count, type, title, name, component, menu_sort, icon, path, i_frame, cache, hidden, permission, create_by, update_by, create_time, update_time
+        menu_id, pid, sub_count, type, title, `name`, component, menu_sort, icon, `path`, i_frame, `cache`, hidden, permission, create_by, update_by, create_time, update_time
     </sql>
+
+    <resultMap id="menuMap" type="sysMenu">
+        <id column="menu_id" jdbcType="BIGINT" property="menuId"></id>
+        <collection column="menu_id" jdbcType="BIGINT" property="children" select="menuList"></collection>
+    </resultMap>
+
+    <select id="menuList" resultMap="menuMap">
+        select <include refid="Base_Column_List"></include>
+        from sys_menu
+        <where>
+            <choose>
+                <when test="menu_id == null">
+                    pid is null
+                </when>
+                <otherwise>
+                    pid = #{menu_id}
+                </otherwise>
+            </choose>
+        </where>
+    </select>
 
 </mapper>

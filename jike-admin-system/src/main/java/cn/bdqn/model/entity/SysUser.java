@@ -1,8 +1,7 @@
 package cn.bdqn.model.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import cn.afterturn.easypoi.excel.annotation.Excel;
+import com.baomidou.mybatisplus.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
@@ -33,24 +32,30 @@ public class SysUser implements Serializable {
 
     @ApiModelProperty(value = "ID")
     @TableId(value = "user_id", type = IdType.AUTO)
+    @Excel(name = "ID")
     private Long userId;
 
     @ApiModelProperty(value = "部门名称")
     private Long deptId;
 
     @ApiModelProperty(value = "用户名")
+    @Excel(name = "用户名")
     private String username;
 
     @ApiModelProperty(value = "昵称")
+    @Excel(name = "昵称")
     private String nickName;
 
     @ApiModelProperty(value = "性别")
+    @Excel(name = "性别")
     private String gender;
 
     @ApiModelProperty(value = "手机号码")
+    @Excel(name = "手机号码")
     private String phone;
 
     @ApiModelProperty(value = "邮箱")
+    @Excel(name = "邮箱")
     private String email;
 
     @ApiModelProperty(value = "头像地址")
@@ -66,21 +71,29 @@ public class SysUser implements Serializable {
     private Boolean isAdmin;
 
     @ApiModelProperty(value = "状态：1启用、0禁用")
-    private Long enabled;
+    @TableField(value = "enabled")
+    private String enabled;
 
     @ApiModelProperty(value = "创建者")
+    @Excel(name = "创建者")
     private String createBy;
 
     @ApiModelProperty(value = "更新者")
+    @Excel(name = "更新者")
     private String updateBy;
 
     @ApiModelProperty(value = "修改密码的时间")
+    @Excel(name = "修改密码的时间")
     private LocalDateTime pwdResetTime;
 
     @ApiModelProperty(value = "创建日期")
+    @TableField(fill = FieldFill.INSERT)
+    @Excel(name = "创建日期")
     private LocalDateTime createTime;
 
     @ApiModelProperty(value = "更新时间")
+    @TableField(fill = FieldFill.UPDATE)
+    @Excel(name = "更新时间")
     private LocalDateTime updateTime;
 
 
