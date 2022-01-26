@@ -25,7 +25,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
         response.setContentType("application/json; charset=UTF-8");
         PrintWriter out = response.getWriter();
-        CommonResult failure = CommonResult.failure();
+        CommonResult failure = CommonResult.failure().setMessage(e.getMessage());
         out.write(JSONUtil.toJsonStr(failure));
         out.flush();
         out.close();

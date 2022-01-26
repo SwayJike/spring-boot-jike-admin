@@ -180,17 +180,17 @@ public class ExcelUtils {
      * @param file       上传的文件
      * @param titleRows  标题行
      * @param headerRows 表头行
-     * @param needVerfiy 是否检验excel内容
+     * @param needVerify 是否检验excel内容
      * @param pojoClass  pojo类型
      * @param <T>
      * @return
      */
-    public static <T> List<T> importExcel(MultipartFile file, Integer titleRows, Integer headerRows, boolean needVerfiy, Class<T> pojoClass) throws IOException {
+    public static <T> List<T> importExcel(MultipartFile file, Integer titleRows, Integer headerRows, boolean needVerify, Class<T> pojoClass) throws IOException {
         if (file == null) {
             return null;
         }
         try {
-            return importExcel(file.getInputStream(), titleRows, headerRows, needVerfiy, pojoClass);
+            return importExcel(file.getInputStream(), titleRows, headerRows, needVerify, pojoClass);
         } catch (Exception e) {
             throw new IOException(e.getMessage());
         }
@@ -202,12 +202,12 @@ public class ExcelUtils {
      * @param inputStream 文件输入流
      * @param titleRows   标题行
      * @param headerRows  表头行
-     * @param needVerfiy  是否检验excel内容
+     * @param needVerify  是否检验excel内容
      * @param pojoClass   pojo类型
      * @param <T>
      * @return
      */
-    public static <T> List<T> importExcel(InputStream inputStream, Integer titleRows, Integer headerRows, boolean needVerfiy, Class<T> pojoClass) throws IOException {
+    public static <T> List<T> importExcel(InputStream inputStream, Integer titleRows, Integer headerRows, boolean needVerify, Class<T> pojoClass) throws IOException {
         if (inputStream == null) {
             return null;
         }
@@ -216,7 +216,7 @@ public class ExcelUtils {
         params.setHeadRows(headerRows);
         params.setSaveUrl("/excel/");
         params.setNeedSave(true);
-        params.setNeedVerify(needVerfiy);
+        params.setNeedVerify(needVerify);
         try {
             return ExcelImportUtil.importExcel(inputStream, pojoClass, params);
         } catch (NoSuchElementException e) {

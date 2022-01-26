@@ -87,6 +87,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .anyRequest()
                 .authenticated()
+                // 防止iframe 造成跨域
+                .and()
+                .headers()
+                .frameOptions()
+                .disable()
                 .and()
                 /*设置表单的登录处理器*/
                 .formLogin()
@@ -107,6 +112,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 /*添加自定义过滤器*/
                 .addFilter(jwtAuthenticationFilter());
+
 
         /*记住我功能*/
         http.rememberMe()

@@ -1,7 +1,9 @@
 package cn.bdqn.mapper;
 
+import cn.bdqn.cache.MybatisRedisCache;
 import cn.bdqn.model.entity.SysDept;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

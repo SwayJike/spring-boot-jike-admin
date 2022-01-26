@@ -1,7 +1,7 @@
 
-h	java:S112Š"FDefine and throw a dedicated exception instead of using a generic one.(Ùº‘›ÿÿÿÿÿ8°â—â/
-}
-java:S3305;"`Inject this field value directly into "persistentTokenRepository", the only method that uses it.(â–ŠĞ8Ìâ—â/
-E
-java:S1185G"(Remove this method to simply inherit it.(í–ÉŒ8åâ—â/
-^	java:S125…"<This block of commented-out lines of code should be removed.(ÆÑşåıÿÿÿÿ8¦â—â/
+a	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ùº‘›ÿÿÿÿÿ
+v
+java:S3305;"`Inject this field value directly into "persistentTokenRepository", the only method that uses it.(â–ŠĞ
+>
+java:S1185G"(Remove this method to simply inherit it.(í–ÉŒ
+W	java:S125‹"<This block of commented-out lines of code should be removed.(ÆÑşåıÿÿÿÿ

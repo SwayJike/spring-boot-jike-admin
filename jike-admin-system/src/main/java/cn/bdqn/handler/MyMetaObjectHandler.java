@@ -7,6 +7,12 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
+/**
+ * @title:元对象处理程序
+ * @Author SwayJike
+ * @Date:2021/11/27 23:38
+ * @Version 1.0
+ */
 @Slf4j
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {

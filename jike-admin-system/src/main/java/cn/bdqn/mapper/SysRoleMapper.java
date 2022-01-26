@@ -2,6 +2,7 @@ package cn.bdqn.mapper;
 
 import cn.bdqn.model.entity.SysRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author SwayJike
  * @since 2021-12-14
  */
+@Mapper
 public interface SysRoleMapper extends BaseMapper<SysRole> {
 
 }
