@@ -3,8 +3,6 @@ package cn.bdqn.cache;
 import cn.bdqn.util.SpringContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.cache.Cache;
-import org.springframework.dao.DataAccessException;
-import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.CollectionUtils;
@@ -102,7 +100,7 @@ public class MybatisRedisCache implements Cache {
         if (redisTemplate == null) {
             log.info("第一次初始化 cache ===> redisTemplate");
             redisTemplate = SpringContextHolder.getBean("redisTemplate");
-            SpringContextHolder.cleanApplicationContext();
+//            SpringContextHolder.cleanApplicationContext();
         }
         return redisTemplate;
     }

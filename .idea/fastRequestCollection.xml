@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="fastRequestCollection">
+    <option name="detail">
+      <CollectionDetail>
+        <option name="childList">
+          <list>
+            <CollectionDetail>
+              <option name="groupId" value="1" />
+              <option name="id" value="1" />
+              <option name="name" value="Default Group" />
+              <option name="type" value="1" />
+            </CollectionDetail>
+            <CollectionDetail>
+              <option name="childList">
+                <list>
+                  <CollectionDetail>
+                    <option name="childList">
+                      <list>
+                        <CollectionDetail>
+                          <option name="domain" value="http://localhost:8080" />
+                          <option name="enableEnv" value="dev" />
+                          <option name="enableProject" value="spring-boot-jike-admin" />
+                          <option name="headerList">
+                            <list>
+                              <DataMapping>
+                                <option name="type" value="authorization" />
+                                <option name="value" value="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTY0MzM1OTM1MiwiZXhwIjoxNjQzOTY0MTUyfQ.TI0fEFdVqoBWg04RhdY4ckcZB8isZwUSy_SoU09Ea-md17WlsMU7g797KHiA0LIWHMg4Pu5_I1dFaYiOPt2_YA" />
+                              </DataMapping>
+                            </list>
+                          </option>
+                          <option name="id" value="id_cn.bdqn.controller.SysUserController.test" />
+                          <option name="name" value="测试1" />
+                          <option name="paramGroup">
+                            <ParamGroupCollection>
+                              <option name="bodyKeyValueListJson" value="" />
+                              <option name="className" value="cn.bdqn.controller.SysUserController" />
+                              <option name="method" value="test" />
+                              <option name="methodDescription" value="测试1" />
+                              <option name="methodType" value="GET" />
+                              <option name="multipartKeyValueListJson" value="[]" />
+                              <option name="originUrl" value="/sysUser/test" />
+                              <option name="pathParamsKeyValueListJson" value="[]" />
+                              <option name="url" value="/sysUser/test" />
+                              <option name="urlEncodedKeyValueListJson" value="[]" />
+                              <option name="urlEncodedKeyValueListText" value="" />
+                              <option name="urlParamsKeyValueListJson" value="[]" />
+                              <option name="urlParamsKeyValueListText" value="" />
+                            </ParamGroupCollection>
+                          </option>
+                          <option name="type" value="2" />
+                        </CollectionDetail>
+                      </list>
+                    </option>
+                    <option name="id" value="20220128165128759" />
+                    <option name="name" value="SysUserController" />
+                    <option name="type" value="1" />
+                  </CollectionDetail>
+                </list>
+              </option>
+              <option name="id" value="20220128165128759" />
+              <option name="name" value="jike-admin-system" />
+              <option name="type" value="1" />
+            </CollectionDetail>
+          </list>
+        </option>
+        <option name="groupId" value="-1" />
+        <option name="id" value="0" />
+        <option name="name" value="Root" />
+        <option name="type" value="1" />
+      </CollectionDetail>
+    </option>
+  </component>
+</project>

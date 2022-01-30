@@ -54,4 +54,11 @@ public class SysMenuController {
         return CommonResult.success(ObjectMapperUtils.jsonToObj(redisUtils.get(key), SysMenu[].class))
                 .setMessage(HttpMessageConst.QUERY_SUCCESS_MESSAGE);
     }
+
+    @GetMapping("/menus")
+    @ApiOperation("获取菜单列表无子菜单")
+    public CommonResult<SysMenu> menus(){
+        List<SysMenu> menus = menuService.list();
+        return CommonResult.success(menus).setMessage(HttpMessageConst.QUERY_SUCCESS_MESSAGE);
+    }
 }

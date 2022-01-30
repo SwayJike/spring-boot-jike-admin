@@ -169,7 +169,7 @@
                     <!--文档名称 为空时:将采用[数据库名称-描述-版本号]作为文档名称-->
                     <!--<fileName></fileName>-->
                     <!--描述-->
-                    <description>数据库文档生成</description>
+                    <description>数据库文档</description>
                     <!--版本-->
                     <version>${project.version}</version>
                     <!--标题-->
